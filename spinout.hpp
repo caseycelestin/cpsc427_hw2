@@ -1,4 +1,3 @@
-
 #ifndef __SPINOUT_HPP__
 #define __SPINOUT_HPP__
 
@@ -9,9 +8,14 @@ namespace cs427_527
 	class SpinOut
 	{
 	public:
+
+		//SpinOut construtor
+		// No argument so initialize to "///////"
+		SpinOut();
+		
 		// SpinOut constructor
-		// Takes a string pointer from user input, initializes "///////" if none
-		SpinOut(std::string& s = "///////");
+		// Takes a string pointer from user input
+		SpinOut(std::string& s);
 		
 		// Checks if move is legal
 		// Takes int 0 to 6 inclusive, numbered left to right 0123456
@@ -39,8 +43,8 @@ namespace cs427_527
 		std::string puzzle;
 		
 		// Number of moves completed
-		int total_moves = 0;
-	}
+		int total_moves;
+	};
 }
 
 #endif
