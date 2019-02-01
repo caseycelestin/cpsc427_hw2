@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-Wall -pedantic -std=c++17
+CXXFLAGS=-g -Wall -pedantic -std=c++17
 
 SpinOut: main.o spinout.o
 	${CXX} ${CXXFLAGS} -o SpinOut main.o spinout.o
