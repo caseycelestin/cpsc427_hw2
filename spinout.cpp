@@ -62,10 +62,8 @@ namespace cs427_527
 	
 	void SpinOut::makeMove(int i)
 	{
-		if(!isLegalMove(i))
+		if(isLegalMove(i))
 		{
-			cout << "illegal move" << endl;
-		} else {
 			if (puzzle[i] == '/')
 			{
 				puzzle[i] = '-';

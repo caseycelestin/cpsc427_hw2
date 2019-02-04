@@ -32,13 +32,16 @@ void interactive(string* init, int size)
 		std::istringstream sin{input};
 		if(sin >> move)
 		{
-			game.makeMove(move);
-			cout << game.toString() << endl;
-			if (game.isSolved())
+			if(game.isLegalMove(move))
 			{
-				cout << game.totalMoves() << " moves" << endl;
-				break;
-			}
+				game.makeMove(move);
+				cout << game.toString() << endl;
+				if (game.isSolved())
+				{
+					cout << game.totalMoves() << " moves" << endl;
+					break;
+				}
+			} else {cout << "illegal move" << endl;}
 		} else {break;}
 	}
 
@@ -47,6 +50,7 @@ void interactive(string* init, int size)
 void non_interactive(string* init, int size)
 {
 	SpinOut game;
+	int move;
 	int index;
 	int m = 1;
 	if(init[1].find('/') != string::npos || init[1].find('-') != string::npos)
@@ -58,17 +62,20 @@ void non_interactive(string* init, int size)
 		game = SpinOut{};	
 		index = 0;
 	}
-
 	while (++index < size) 
 	{
-		if(!game.isLegalMove(std::stoi(init[index])))
+		std::stringstream convert(init[index]);
+		if(convert >> move)
 		{
-			cout << "Spinout: illegal move " << init[index] << " in position " << m << " for " << game.toString() << endl;
-			return;
-		} else
-		{
-			game.makeMove(std::stoi(init[index]));
-			m++;
+			if(!game.isLegalMove(move))
+			{
+				cout << "SpinOut: illegal move " << move  << " in position " << m << " for " << game.toString() << endl;
+				return;
+			} else
+			{
+				game.makeMove(move);
+				m++;
+			}
 		}
 	}
 
