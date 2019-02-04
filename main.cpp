@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 using std::cin;
 using std::cout;
@@ -13,7 +14,8 @@ using cs427_527::SpinOut;
 void interactive(string* init, int size)
 {
 	SpinOut game;
-	int move;
+	int move = 0;
+	string input;
 
 	if (size == 2)
 	{
@@ -25,15 +27,19 @@ void interactive(string* init, int size)
 		cout << game.toString() << endl;
 	}
 	
-	while(cin >> move)
+	while(std::getline(cin, input) && input.length() > 0)
 	{
-		game.makeMove(move);
-		cout << game.toString() << endl;
-		if (game.isSolved())
+		std::istringstream sin{input};
+		if(sin >> move)
 		{
-			cout << game.totalMoves() << " moves" << endl;
-			break;
-		}
+			game.makeMove(move);
+			cout << game.toString() << endl;
+			if (game.isSolved())
+			{
+				cout << game.totalMoves() << " moves" << endl;
+				break;
+			}
+		} else {break;}
 	}
 
 }
