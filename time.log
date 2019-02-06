@@ -7,6 +7,14 @@ Date  Start  Spent  Work
 ----  -----  -----  ----
 1/31  10:00  0:30   Read the assignment and created appropriate files to begin
 1/31  13:32  0:50   Began to implement SpinOut class, left untested
-1/30  17:00  1:50   Finished implementing SpinOut class and its methods, no known problems
+1/31  17:00  1:50   Finished implementing SpinOut class and its methods, no known problems
+1/31  21:15  2:15   Implemented and debugged interactive mode
+2/4   11:50  1:50   Implemented and debugged non-interactive mode, added interactive mode give up, ran against public test sans Unit and partially debugged
+2/6   11:30  1:00   Finsished debugging against public cases, handled exceptions, then ran against Unit tests
+             ----
+			 8:15   TOTAL time spent
 
+I discussed my solution with: Tomaso Mukai
+
+Learning not only why to throw exception but how to handle them was interesting take away for me. There were some debugging issues as well as input issues. Trying to read from the command line took some strategizing and I still do not believe it is the best implementation. I could benefit next time to take more time to think about i/o a little more before I start implementing a solution.
 

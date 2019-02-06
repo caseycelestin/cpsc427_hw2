@@ -16,7 +16,7 @@ namespace cs427_527
 		total_moves = 0;
 	}
 	
-	SpinOut::SpinOut(std::string& s)
+	SpinOut::SpinOut(const std::string& s)
 	{
 		if (s.length() != SIZE)
 		{
@@ -33,7 +33,7 @@ namespace cs427_527
 		total_moves = 0;
 	}
 	
-	bool SpinOut::isLegalMove(int i)
+	bool SpinOut::isLegalMove(int i) const
 	{
 		bool check = true;
 		if ( i >= SIZE || i < 0)

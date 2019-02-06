@@ -15,11 +15,11 @@ namespace cs427_527
 		
 		// SpinOut constructor
 		// Takes a string pointer from user input
-		SpinOut(std::string& s);
+		SpinOut(const std::string& s);
 		
 		// Checks if move is legal
 		// Takes int 0 to 6 inclusive, numbered left to right 0123456
-		bool isLegalMove(int i);
+		bool isLegalMove(int i) const;
 		
 		// Executes move
 		// Checks to see if move is legal, then rotates to other orientation
@@ -35,10 +35,10 @@ namespace cs427_527
 		// Returns string representation of puzzle
 		std::string toString(); 
 		
-	private:
 		// Size of puzzle
 		static const int SIZE = 7;
 		
+	private:
 		// String representation of puzzle
 		std::string puzzle;
 		

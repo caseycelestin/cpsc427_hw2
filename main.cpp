@@ -98,13 +98,19 @@ int main(int argc, char **argv)
 		input[i] = argv[i];
 	}
 
-	
-	if (input[1].compare("-i") == 0)
+	try 
 	{
-		interactive(input, argc);
-	} else
+		if (input[1].compare("-i") == 0)
+		{
+			interactive(input, argc);
+		} else
+		{
+			non_interactive(input, argc);
+		}
+	}
+	catch (std::invalid_argument& e)
 	{
-		non_interactive(input, argc);
+		cout << "Invalid argument" << endl;
 	}
 
 	delete[] input;	
